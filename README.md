@@ -1,2 +1,3 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/AnnRomm/php-project-57/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AnnRomm/php-project-57/actions)
+# Task Manager
+
+Task Manager is a task management system. It allows you to create tasks, assign performers, change their statuses and put labels. Registration and authentication are required to work with the system.
