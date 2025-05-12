@@ -9,14 +9,14 @@
                 @auth
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <button type="submit">Выйти</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{{ __('layout.logout') }}</button>
                     </form>
                 @else
                     <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        {{ "Вход" }}
+                        {{ __('layout.login') }}
                     </a>
                     <a href="{{ route('register') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
-                        {{ "Регистрация" }}
+                        {{ __('layout.register') }}
                     </a>
                 @endauth
             </div>
@@ -24,16 +24,16 @@
             <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1">
                 <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                            Задачи                                </a>
+                        <a href="{{ route('tasks.index') }}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
+                            {{ __('layout.tasks') }}                                </a>
                     </li>
                     <li>
                         <a href=" {{ route('task_statuses.index') }}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                            Статусы                                </a>
+                            {{ __('layout.statuses') }}                                </a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
-                            Метки                                </a>
+                        <a href="{{ route('labels.index') }}" class="block py-2 pl-3 pr-4 text-gray-700 hover:text-blue-700 lg:p-0">
+                            {{ __('layout.labels') }}                               </a>
                     </li>
                 </ul>
             </div>
