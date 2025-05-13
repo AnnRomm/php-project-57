@@ -10,6 +10,7 @@ use App\Models\TaskStatus;
 
 class TaskStatusControllerTest extends TestCase
 {
+    use RefreshDatabase;
     private User $user;
     private TaskStatus $taskStatus;
 
@@ -53,7 +54,9 @@ class TaskStatusControllerTest extends TestCase
     public function testUpdate(): void
     {
         $this->actingAs($this->user);
-        $body = TaskStatus::factory()->make()->only('name');
+        $body = TaskStatus::factory()->make([
+            'name' => 'unique_status_' . uniqid(),
+        ])->only('name');
         $response = $this->patch(route('task_statuses.update', ['task_status' => $this->taskStatus]), $body);
         $response->assertSessionHasNoErrors();
         $response->assertRedirect();
