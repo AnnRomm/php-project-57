@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class TaskStatus extends Model
 {
     use Hasfactory;
+
     protected $fillable = ['name'];
 
     public function tasks(): HasMany

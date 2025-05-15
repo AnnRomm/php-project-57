@@ -11,6 +11,7 @@ use App\Models\TaskStatus;
 class TaskStatusControllerTest extends TestCase
 {
     use RefreshDatabase;
+
     private User $user;
     private TaskStatus $taskStatus;
 

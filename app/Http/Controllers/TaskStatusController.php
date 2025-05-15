@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests\TaskStatusRequest;
 use App\Models\TaskStatus;
 
-
 class TaskStatusController extends Controller
 {
     public function __construct()
@@ -85,5 +84,4 @@ class TaskStatusController extends Controller
 
         return redirect()->route('task_statuses.index');
     }
-
 }

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Task extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name',
         'description',
@@ -36,5 +37,4 @@ class Task extends Model
     {
         return $this->belongsToMany(Label::class);
     }
-
 }
