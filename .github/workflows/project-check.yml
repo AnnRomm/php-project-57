@@ -2,27 +2,34 @@ name: project-check
 on: push
 jobs:
   build:
+
+    # The type of machine to run the job on
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: setup php
+      # Check-out repository under GitHub workspace
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v4
+        # Step's name
+      - name: Setup PHP
+        # Action gives to setup the PHP environment to test application
+        # https://github.com/shivammathur/setup-php
         uses: shivammathur/setup-php@v2
         with:
+          # Specify the PHP version
           php-version: '8.2'
-      - name: setup
-        run: make setup
-
-      - name: run linter
+      - name: Install
+        # Install project
+        run: make install
+      - name: Run linter
+        # Run Linter
         run: make lint
 
-      - name: run tests
-        run: make test
+        # https://docs.sonarsource.com/sonarqube-cloud/enriching/test-coverage/php-test-coverage/
+      - name: Run tests
+        run: make test-coverage
 
-      - name: run test & publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        with:
-          coverageCommand: make test-coverage
-          coverageLocations: build/logs/clover.xml:clover
-          debug: true
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
