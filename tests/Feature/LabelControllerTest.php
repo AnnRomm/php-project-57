@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
@@ -9,6 +10,7 @@ use App\Models\Label;
 
 class LabelControllerTest extends TestCase
 {
+    use RefreshDatabase;
     private User $user;
     private Label $label;
 

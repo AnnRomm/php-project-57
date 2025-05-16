@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
@@ -9,6 +10,7 @@ use App\Models\Task;
 
 class TaskControllerTest extends TestCase
 {
+    use RefreshDatabase;
     private User $user;
     private Task $task;
 
