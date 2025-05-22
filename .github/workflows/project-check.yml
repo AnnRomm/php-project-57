@@ -22,14 +22,12 @@ jobs:
         # Install project
         run: make install
 
-      - name: Generate APP_KEY
-        run: echo "APP_KEY=${{ secrets.APP_KEY }}" >> .env
-#      - name: Run linter
+      - name: Setup project
+        run: make setup
+
+      #      - name: Run linter
 #        # Run Linter
 #        run: make lint
-
-      - name: npm run
-        run: npm run dev
 
         # https://docs.sonarsource.com/sonarqube-cloud/enriching/test-coverage/php-test-coverage/
       - name: Run tests
