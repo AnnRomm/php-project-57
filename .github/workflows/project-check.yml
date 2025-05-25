@@ -25,9 +25,9 @@ jobs:
       - name: Setup project
         run: make setup
 
-      #      - name: Run linter
+      - name: Run linter
 #        # Run Linter
-#        run: make lint
+        run: make lint
 
         # https://docs.sonarsource.com/sonarqube-cloud/enriching/test-coverage/php-test-coverage/
       - name: Run tests

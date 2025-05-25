@@ -11,6 +11,7 @@ use App\Models\Task;
 class TaskControllerTest extends TestCase
 {
     use RefreshDatabase;
+
     private User $user;
     private Task $task;
 

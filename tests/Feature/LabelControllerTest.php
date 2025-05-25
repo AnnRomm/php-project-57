@@ -11,6 +11,7 @@ use App\Models\Label;
 class LabelControllerTest extends TestCase
 {
     use RefreshDatabase;
+
     private User $user;
     private Label $label;
 
