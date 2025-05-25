@@ -7,10 +7,11 @@
 
             <div class="flex items-center lg:order-2">
                 @auth
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{{ __('layout.logout') }}</button>
-                    </form>
+                    <a href="{{ route('logout') }}"
+                       data-method="POST"
+                       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
+                        {{ __('layout.logout') }}
+                    </a>
                 @else
                     <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         {{ __('layout.login') }}
