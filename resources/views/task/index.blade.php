@@ -88,13 +88,12 @@
                     @auth
                         <td>
                             @can('delete', $task)
-                                <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('{{ __('task.index.delete_confirm') }}')" class="text-red-600 hover:text-red-900">
-                                        {{ __('task.index.delete') }}
-                                    </button>
-                                </form>
+                                <a href="{{ route('tasks.destroy', $task->id) }}"
+                                   data-confirm="{{ __('task.index.delete_confirm') }}"
+                                   data-method="DELETE"
+                                   class="text-red-600 hover:text-red-900">
+                                    {{ __('task.index.delete') }}
+                                </a>
                             @endcan
                             <a href="{{ route('tasks.edit', $task->id) }}" class="text-blue-600 hover:text-blue-900">
                                 {{ __('task.index.edit') }}

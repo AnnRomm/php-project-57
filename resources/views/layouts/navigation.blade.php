@@ -24,23 +24,19 @@
         @endauth
 
         <div class="flex items-center lg:order-2">
-            @guest
-                <x-primary-hyperlink-button :href="route('login')">
-                    {{ __('nav.login')  }}
-                </x-primary-hyperlink-button>
-                <x-primary-hyperlink-button class="ml-2" :href="route('register')">
-                    {{ __('nav.register')  }}
-                </x-primary-hyperlink-button>
-            @endguest
-
             @auth
-                <x-primary-hyperlink-button :href="route('logout')" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    {{ __('Logout')  }}
-                </x-primary-hyperlink-button>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                <a href="{{ route('logout') }}"
+                   data-method="POST"
+                   class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
+                    {{ __('nav.logout') }}
+                </a>
+            @else
+                <a href="{{ route('login') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    {{ __('nav.login') }}
+                </a>
+                <a href="{{ route('register') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
+                    {{ __('nav.register') }}
+                </a>
             @endauth
         </div>
     </div>

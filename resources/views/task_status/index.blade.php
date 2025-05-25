@@ -31,13 +31,12 @@
                         <td>{{ $status->created_at->format('d.m.Y') }}</td>
                         @auth
                             <td>
-                                <form action="{{ route('task_statuses.destroy', $status->id) }}" method="POST" style="display: inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="return confirm('{{ __('task_status.index.delete_confirm') }}')" class="text-red-600 hover:text-red-900">
-                                        {{ __('task_status.index.delete') }}
-                                    </button>
-                                </form>
+                                <a href="{{ route('task_statuses.destroy', $status->id) }}"
+                                   data-confirm="{{ __('task_status.index.delete_confirm') }}"
+                                   data-method="DELETE"
+                                   class="text-red-600 hover:text-red-900">
+                                    {{ __('task_status.index.delete') }}
+                                </a>
                                 <a href="{{ route('task_statuses.edit', $status->id) }}" class="text-blue-600 hover:text-blue-900">
                                     {{ __('task_status.index.edit') }}
                                 </a>
