@@ -13,10 +13,9 @@
     </div>
     <div class="mt-2">
         {{ html()
-            ->input('text', 'name')
+            ->text('name', old('name', $label->name ?? ''))
             ->id('name')
             ->value(old('name', $label->name ?? ''))
-            ->required()
             ->class('rounded border-gray-300 w-1/3') }}
     </div>
     <x-error-message name="name" />
@@ -32,7 +31,6 @@
             ->textarea('description', old('description', $label->description ?? ''))
             ->id('description')
             ->class('rounded border-gray-300 w-1/3 h-32')
-            ->required()
             ->attribute('cols', 50)
             ->attribute('rows', 10) }}
     </div>

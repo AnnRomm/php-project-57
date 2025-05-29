@@ -16,13 +16,12 @@
     {{-- Description --}}
     <div class="mt-2">
     {{ html()
-        ->input('text', 'name')
+        ->text('name', old('name', $taskStatus->name ?? ''))
         ->id('name')
         ->value(old('name', $taskStatus->name ?? ''))
-        ->required()
         ->class('rounded border-gray-300 w-1/3') }}
     </div>
-    <x-error-message name="description" />
+    <x-error-message name="name" />
 
     {{-- Submit --}}
     <x-submit-button>

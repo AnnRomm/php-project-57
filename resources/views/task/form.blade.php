@@ -12,7 +12,8 @@
                 ->label(__($prefix . '.name'), 'name') }}
         </div>
         <div class="mt-2">
-            {{ html()->text('name', old('name', $task->name ?? ''))
+            {{ html()
+                ->text('name', old('name', $task->name ?? ''))
                 ->id('name')
                 ->class('rounded border-gray-300 w-1/3') }}
         </div>
