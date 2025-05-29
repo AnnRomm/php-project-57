@@ -49,13 +49,13 @@
                 </form>
             </div>
 
-            @auth
+            @can ('create', App\Models\Task::class)
                 <div class="ml-auto">
                     <a href="{{ route('tasks.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2">
                         {{ __('task.index.create') }}
                     </a>
                 </div>
-            @endauth
+            @endcan
         </div>
 
         <table class="mt-4">
@@ -85,7 +85,6 @@
                     <td>{{ $task->createdBy->name }}</td>
                     <td>{{ $task->assignedTo->name ?? '' }}</td>
                     <td>{{ $task->created_at->format('d.m.Y') }}</td>
-                    @auth
                         <td>
                             @can('delete', $task)
                                 <a href="{{ route('tasks.destroy', $task->id) }}"
@@ -95,11 +94,12 @@
                                     {{ __('task.index.delete') }}
                                 </a>
                             @endcan
+                            @can('update', $task)
                             <a href="{{ route('tasks.edit', $task->id) }}" class="text-blue-600 hover:text-blue-900">
                                 {{ __('task.index.edit') }}
                             </a>
+                            @endcan
                         </td>
-                    @endauth
                 </tr>
             @endforeach
             </tbody>

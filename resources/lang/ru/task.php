@@ -23,7 +23,7 @@ return [
         'status_id' => 'Статус',
         'assigned_to_id' => 'Исполнитель',
         'labels' => 'Метки',
-        'button' => 'Создать',
+        'button' => 'Создать'
     ],
     'edit' => [
         'header' => 'Изменение задачи',
@@ -32,7 +32,7 @@ return [
         'status_id' => 'Статус',
         'assigned_to_id' => 'Исполнитель',
         'labels' => 'Метки',
-        'button' => 'Обновить',
+        'button' => 'Обновить'
     ],
     'show' => [
         'header' => 'Просмотр задачи:',
@@ -40,6 +40,6 @@ return [
         'status_id' => 'Статус:',
         'description' => 'Описание:',
         'labels' => 'Метки:',
-        'button' => 'Обновить',
+        'button' => 'Обновить'
     ]
 ];

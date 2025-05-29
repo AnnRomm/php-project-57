@@ -20,7 +20,7 @@ console:
 	php artisan tinker
 
 test:
-	php artisan test
+	php artisan test tests/Feature
 
 test-coverage:
 	XDEBUG_MODE=coverage composer exec --verbose phpunit tests -- --coverage-clover build/logs/clover.xml

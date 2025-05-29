@@ -6,13 +6,13 @@
             {{ __('label.index.header') }}
         </h1>
 
-        @auth
+        @can ('create',  App\Models\Label::class))
             <div>
                 <a href="{{ route('labels.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                     {{ __('label.index.create') }}
                 </a>
             </div>
-        @endauth
+        @endcan
 
         <table class="mt-4">
             <thead class="border-b-2 border-solid border-black text-left">
@@ -33,19 +33,21 @@
                     <td>{{ $label->name }}</td>
                     <td>{{ $label->description }}</td>
                     <td>{{ $label->created_at->format('d.m.Y') }}</td>
-                    @auth
                         <td>
+                            @can('delete', $label)
                             <a href="{{ route('labels.destroy', $label->id) }}"
                                data-confirm="{{ __('label.index.delete_confirm') }}"
                                data-method="DELETE"
                                class="text-red-600 hover:text-red-900">
                                 {{ __('label.index.delete') }}
                             </a>
+                            @endcan
+                            @can('update', $label)
                             <a href="{{ route('labels.edit', $label->id) }}" class="text-blue-600 hover:text-blue-900">
                                 {{ __('label.index.edit') }}
                             </a>
+                            @endcan
                         </td>
-                    @endauth
                 </tr>
             @endforeach
             </tbody>
