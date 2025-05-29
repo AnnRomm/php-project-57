@@ -22,7 +22,7 @@
         ->required()
         ->class('rounded border-gray-300 w-1/3') }}
     </div>
-    <x-error-message name="name" />
+    <x-error-message name="description" />
 
     {{-- Submit --}}
     <x-submit-button>

@@ -32,6 +32,7 @@
             ->textarea('description', old('description', $label->description ?? ''))
             ->id('description')
             ->class('rounded border-gray-300 w-1/3 h-32')
+            ->required()
             ->attribute('cols', 50)
             ->attribute('rows', 10) }}
     </div>
